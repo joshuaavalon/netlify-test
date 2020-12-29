@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "netlify-lambda build src",
+    "build": "netlify-lambda build -c webpack.lambda.js src",
     "deploy": "netlify deploy",
     "ts-check": "tsc --noEmit --lib ES2015 ./src/*.ts"
   },
