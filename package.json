@@ -1,0 +1,22 @@
+{
+  "name": "netlify-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "netlify-lambda build src",
+    "deploy": "netlify deploy",
+    "ts-check": "tsc --noEmit --lib ES2015 ./src/*.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "netlify-lambda": "^2.0.2"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/aws-lambda": "^8.10.68",
+    "netlify-cli": "^2.69.11"
+  }
+}
