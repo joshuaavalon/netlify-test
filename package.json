@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "mime-types": "^2.1.27",
     "minio": "^7.0.18",
     "sharp": "^0.27.0"
   },
@@ -19,6 +21,8 @@
     "@babel/preset-typescript": "^7.12.7",
     "@joshuaavalon/eslint-config-typescript": "^4.3.1",
     "@types/aws-lambda": "^8.10.68",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mime-types": "^2.1.0",
     "@types/minio": "^7.0.6",
     "@types/node": "^14.14.16",
     "@types/sharp": "^0.26.1",
