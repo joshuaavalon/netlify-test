@@ -5,6 +5,9 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const nodeEnv = process.env.NODE_ENV || "production";
 
 module.exports = {
+  entry: {
+    index: path.join(__dirname, "src", "index")
+  },
   mode: nodeEnv,
   resolve: {
     extensions: [".wasm", ".mjs", ".js", ".json", ".ts"],
@@ -25,7 +28,6 @@ module.exports = {
     ]
   },
   context: __dirname,
-  entry: [path.join(__dirname, "src", "index")],
   target: "node",
   plugins: [new CleanWebpackPlugin()],
   output: {
