@@ -3,3 +3,8 @@ extends:
 env:
   es6: true
   node: true
+overrides:
+  - files:
+      - webpack.config.js
+    rules:
+      prefer-named-capture-group: off

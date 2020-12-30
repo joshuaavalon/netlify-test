@@ -2,10 +2,9 @@
   "name": "netlify-test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "build": "netlify-lambda build -c webpack.lambda.js src",
-    "deploy": "netlify deploy",
+    "build": "webpack",
     "ts-check": "tsc --noEmit --lib ES2015 ./src/*.ts"
   },
   "keywords": [],
@@ -18,6 +17,11 @@
     "sharp": "^0.27.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/plugin-transform-object-assign": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
     "@babel/preset-typescript": "^7.12.7",
     "@joshuaavalon/eslint-config-typescript": "^4.3.1",
     "@types/aws-lambda": "^8.10.68",
@@ -26,9 +30,13 @@
     "@types/minio": "^7.0.6",
     "@types/node": "^14.14.16",
     "@types/sharp": "^0.26.1",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^7.16.0",
-    "netlify-lambda": "^2.0.2",
     "prettier": "^2.2.1",
-    "typescript": "^4.1.3"
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.3",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.0"
   }
 }
