@@ -1,8 +1,9 @@
 import { APIGatewayProxyHandlerV2 } from "aws-lambda";
-import sharp, { Sharp } from "sharp";
 import { BucketItemStat, Client } from "minio";
 import jwt from "jsonwebtoken";
 import mime from "mime-types";
+
+import { transformImage } from "./image";
 
 const createClient = (): Client => {
   const {
@@ -12,58 +13,6 @@ const createClient = (): Client => {
     S3_REGION: region = ""
   } = process.env;
   return new Client({ endPoint, secretKey, accessKey, region });
-};
-
-const allowMethods = [
-  "resize",
-  "extend",
-  "extract",
-  "trim",
-  "rotate",
-  "flip",
-  "flop",
-  "sharpen",
-  "median",
-  "blur",
-  "flatten",
-  "gamma",
-  "negate",
-  "normalise",
-  "normalize",
-  "convolve",
-  "threshold",
-  "linear",
-  "recomb",
-  "modulate",
-  "tint",
-  "greyscale",
-  "grayscale",
-  "toColourspace",
-  "toColorspace",
-  "removeAlpha",
-  "ensureAlpha",
-  "extractChannel"
-];
-
-interface TransformImageOption {
-  format: string;
-  query: Record<string, any>;
-}
-
-const transformImage = (opt: TransformImageOption): Sharp => {
-  let shp = sharp();
-  const { format: ext, query } = opt;
-  const { format = {}, ...others } = query;
-  Object.entries(others).forEach(([key, value]) => {
-    if (
-      allowMethods.includes(key) &&
-      key in shp &&
-      typeof shp[key] === "function"
-    ) {
-      shp = shp[key](value);
-    }
-  });
-  return shp.toFormat(ext, format);
 };
 
 export const handler: APIGatewayProxyHandlerV2 = async event => {
