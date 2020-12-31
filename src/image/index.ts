@@ -3,7 +3,7 @@ import { BucketItemStat, Client } from "minio";
 import jwt from "jsonwebtoken";
 import mime from "mime-types";
 
-import { transformImage } from "./sharp";
+import { transformImage } from "./image";
 
 const createClient = (): Client => {
   const {
